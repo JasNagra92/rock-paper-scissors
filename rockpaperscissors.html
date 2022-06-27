@@ -8,7 +8,47 @@
 
         <script>
 
+           /*   
+                create variable that stores random number between 0, 1, or 2
+                creat variable that stores either 'rock', 'paper' or 'scissors' depending on value of previous variable 
+                change value of variable to either rock, paper, or scissors depending on if variable value == 0, 1, or 2
+                ask for user input - prompt rock, paper, or scissors?
+                store user input inside variable
+                make function that compares the 2 original variables and returns 'you win, you lose, or tie' depending on outcome
+                
+            */
+            let cpuChoice;
+
+            let cpuChoiceNum = Math.floor((Math.random()) * 3)
             
+            if (cpuChoiceNum == 0){
+                cpuChoice = 'rock'
+            } else if (cpuChoiceNum == 1){
+                cpuChoice = 'paper'
+            } else {
+                cpuChoice = 'scissors'
+            }
+            function computerPlay(){
+                return cpuChoice
+            }
+            console.log(computerPlay())
+
+            let playerChoice = prompt("rock paper or scissors?")
+
+            function playGame(playerChoice, cpuChoice){
+                if (cpuChoice == 'rock' && playerChoice == 'scissors'){
+                    alert('you lose')
+                } else if (cpuChoice == 'paper' && )
+            }
+            playGame(playerChoice, cpuChoice)
+            
+
+
+           
+        
+            
+            
+
         </script>
     </body>
 </html>
