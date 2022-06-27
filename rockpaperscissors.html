@@ -11,22 +11,20 @@
     <script>
 
         /*   
-             create variable that stores random number between 0, 1, or 2
-             creat variable that stores either 'rock', 'paper' or 'scissors' depending on value of previous variable 
-             change value of variable to either rock, paper, or scissors depending on if variable value == 0, 1, or 2
-             ask for user input - prompt rock, paper, or scissors?
-             store user input inside variable
              make function that compares the variables and returns 'you win, you lose, or tie' depending on outcome
              3 possible values for cpuChoice
              rock - if cpu chooses rock, run 3 seperate and statements, each returning differen't result message
              paper - if cpu chooses paper, run 3 seperate and statements, each returning differen't result message
              scissor - if cpu chooses scissors, run 3 seperate and statements, each returning differen't result message
-             
          */
-        let cpuChoice;
-
+        
+        /*create variable that stores random number between 0, 1, or 2*/
         let cpuChoiceNum = Math.floor((Math.random()) * 3)
 
+        /*create variable to store cpu choice as rock, paper or scissors */
+        let cpuChoice;
+
+        /*change value of cpu choice variable depending on value of random number variable */
         if (cpuChoiceNum == 0) {
             cpuChoice = 'rock'
         } else if (cpuChoiceNum == 1) {
@@ -34,43 +32,45 @@
         } else {
             cpuChoice = 'scissors'
         }
+
+        /*create function that returns previous cpu choice variable */
         function computerPlay() {
             return cpuChoice
         }
-        console.log(computerPlay())
 
+        /*create variable to store user choice of rock, paper, or scissors after a prompt */
         let playerChoice = prompt('rock, paper, or scissors?')
 
+        /*create function that compares the 2 variables and returns a win or loss */
         function playGame(playerChoice, cpuChoice) {
-            if (cpuChoice == 'rock'){
-                if (cpuChoice == 'rock' && playerChoice == 'paper'){
+            if (cpuChoice == 'rock') {
+                if (cpuChoice == 'rock' && playerChoice == 'paper') {
                     return 'you win!'
-                } else if(cpuChoice == 'rock' && playerChoice == 'scissors'){
+                } else if (cpuChoice == 'rock' && playerChoice == 'scissors') {
                     return 'you lose!'
-                } else { 
+                } else {
                     return 'tie'
                 }
-            } else if (cpuChoice == 'paper'){
-                if (cpuChoice == 'paper' && playerChoice == 'rock'){
+            } else if (cpuChoice == 'paper') {
+                if (cpuChoice == 'paper' && playerChoice == 'rock') {
                     return 'you lose!'
-                } else if (cpuChoice == 'paper' && playerChoice == 'scissors'){
+                } else if (cpuChoice == 'paper' && playerChoice == 'scissors') {
                     return 'you win!'
                 } else {
                     return 'tie'
                 }
-            } else if (cpuChoice == 'scissors'){
-                if (cpuChoice == 'scissors' && playerChoice == 'rock'){
+            } else if (cpuChoice == 'scissors') {
+                if (cpuChoice == 'scissors' && playerChoice == 'rock') {
                     return 'you win!'
-                } else if (cpuChoice == 'scissors' && playerChoice == 'paper'){
+                } else if (cpuChoice == 'scissors' && playerChoice == 'paper') {
                     return 'you lose!'
                 } else {
                     return 'tie'
                 }
             }
-            
         }
-        
-        console.log(playGame(playerChoice,computerPlay()))
+
+        console.log(playGame(playerChoice, computerPlay()))
 
 
 
