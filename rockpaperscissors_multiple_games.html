@@ -29,29 +29,25 @@
         }
       }
 
-<<<<<<< HEAD
         /*create function that assigns random string as cpuChoice and returns it */
         function computerPlay() {
             setCpuChoice();
             return cpuChoice
         }
-=======
       /*create function that returns previous cpu choice variable */
       function computerPlay() {
         setCpuChoice();
         return cpuChoice;
       }
->>>>>>> 6baa69f65143f75ea47dadaf8ef1f7fa7482d714
 
       /*create variable to store user choice of rock, paper, or scissors after a prompt */
       let playerChoice = prompt("rock, paper, or scissors?");
 
       /*create function that compares the 2 variables and returns a win or loss, but uses the previous cpuChoice function
         so cpu choice is random each time */
-<<<<<<< HEAD
-        function playGame(playerChoice, cpuChoice) {
+      function playGame(playerChoice, cpuChoice) {
             setCpuChoice();
-             
+
                 if (cpuChoice == 'rock' && playerChoice == 'paper') {
                     playerWins = ++playerWins;
                     return "you win!"
@@ -70,40 +66,10 @@
                 } else if (cpuChoice == 'scissors' && playerChoice == 'paper') {
                     cpuWins = ++cpuWins;
                     return "you lose!";
-                } else { return 'tie'}           
+                } else { return 'tie'}
             }
-        
-            /*create function to play the game 5 times and return winner or loser at the end */
-        function game(){
-            for (let i = 0; i < 5; i++){
-                playerChoice = prompt('paper scissors rock?')
-=======
-      function playGame(playerChoice, cpuChoice) {
-        setCpuChoice();
->>>>>>> 6baa69f65143f75ea47dadaf8ef1f7fa7482d714
 
-        if (cpuChoice == "rock" && playerChoice == "paper") {
-          playerWins = ++playerWins;
-          return "you win!";
-        } else if (cpuChoice == "rock" && playerChoice == "scissors") {
-          cpuWins = ++cpuWins;
-          return "you lose!";
-        } else if (cpuChoice == "paper" && playerChoice == "rock") {
-          cpuWins = ++cpuWins;
-          return "you lose!";
-        } else if (cpuChoice == "paper" && playerChoice == "scissors") {
-          playerWins = ++playerWins;
-          return "you win!";
-        } else if (cpuChoice == "scissors" && playerChoice == "rock") {
-          playerWins = ++playerWins;
-          return "you win!";
-        } else if (cpuChoice == "scissors" && playerChoice == "paper") {
-          cpuWins = ++cpuWins;
-          return "you lose!";
-        } else {
-          return "tie";
-        }
-      }
+            /*create function to play the game 5 times and return winner or loser at the end */
 
       function game() {
         for (let i = 0; i < 5; i++) {
