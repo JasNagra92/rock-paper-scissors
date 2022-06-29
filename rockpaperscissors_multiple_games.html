@@ -31,7 +31,7 @@
             }
         }
 
-        /*create function that returns previous cpu choice variable */
+        /*create function that assigns random string as cpuChoice and returns it */
         function computerPlay() {
             setCpuChoice();
             return cpuChoice
@@ -65,7 +65,8 @@
                     return "you lose!";
                 } else { return 'tie'}           
             }
-    
+        
+            /*create function to play the game 5 times and return winner or loser at the end */
         function game(){
             for (let i = 0; i < 5; i++){
                 playerChoice = prompt('paper scissors rock?')
