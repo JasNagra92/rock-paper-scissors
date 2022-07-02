@@ -15,7 +15,7 @@
       <button class="btn flex-item paper">Paper</button>
       <button class="btn flex-item scissors">Scissors</button>
     </div>
-    <div id = "scoreboards">
+    <div id="scoreboards">
       <div class="Score">
         <h2>Cpu Score</h2>
         <p></p>
@@ -70,7 +70,7 @@
             location.reload();
           }
         } else {
-          return "tie";
+          alert("tie, choose again");
         }
       };
 
@@ -80,13 +80,15 @@
         if (cpuChoice == "scissors") {
           cpuWins += 1;
           updateCpuScore();
-          return "you lose";
+          alert("You Lose!");
+          location.reload();
         } else if (cpuChoice == "paper") {
-          return "tie";
+          alert("tie, choose again");
         } else {
           playerWins += 1;
           updatePlayerScore();
-          return "you win";
+          alert("You Win!");
+          location.reload();
         }
       };
 
@@ -94,15 +96,17 @@
         setCpuChoice();
 
         if (cpuChoice == "scissors") {
-          return "tie";
+          alert("tie, choose again");
         } else if (cpuChoice == "paper") {
           playerWins += 1;
           updatePlayerScore();
-          return "you win";
+          alert("You Win!");
+          location.reload();
         } else {
           cpuWins += 1;
           updateCpuScore();
-          return "you lose";
+          alert("You Lose!");
+          location.reload();
         }
       };
 
