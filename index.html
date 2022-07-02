@@ -58,11 +58,17 @@
         if (cpuChoice == "scissors") {
           playerWins += 1;
           updatePlayerScore();
-          return "you win";
+          if (playerWins == 5) {
+            alert("You Win!");
+            location.reload();
+          }
         } else if (cpuChoice == "paper") {
           cpuWins += 1;
           updateCpuScore();
-          return "you lose";
+          if (cpuWins == 5) {
+            alert("You Lose!");
+            location.reload();
+          }
         } else {
           return "tie";
         }
