@@ -16,7 +16,12 @@
       <button class="btn flex-item scissors">Scissors</button>
     </div>
     <div>
-      <p></p>
+      <div class="cpuScore">
+        <h2>Cpu Score</h2>
+      </div>
+      <div class="playerScore">
+        <h2>Player Score</h2>
+      </div>
     </div>
 
     <script>
@@ -24,9 +29,10 @@
       let playerWins = 0;
       let cpuChoice;
 
-      const score = document.querySelector("p")
-      let updateScore = function(){
-      score.textContent = cpuWins}
+      const score = document.querySelector("p");
+      let updateScore = function () {
+        score.textContent = cpuWins;
+      };
 
       function setCpuChoice() {
         let cpuChoiceNum = Math.floor(Math.random() * 3);
