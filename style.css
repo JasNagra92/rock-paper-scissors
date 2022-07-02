@@ -3,19 +3,27 @@
     flex-direction:row;
     width:fit-content;
     justify-content: center;
+    align-items: center;
+    margin:auto;
+    height: 200px;
     
 }
 .flex-container-2{
     display: flex;
     flex-direction:row;
-    width:fit-content
+    width:max-content;
+    height:200px;
+    margin:auto;
+    justify-content:space-evenly;
+    align-items: center;
+    gap:150px
 }
 
 .flex-item{
-    flex:auto;
+    flex:1;
     align-items: center;
     justify-content: center;
-    width:auto
+    width:auto;
 
 }
 
@@ -25,9 +33,23 @@ h1{
 }
 
 .btn{
-    background-color: blue;
-    border:thick solid white;
+    background-color: black;
+    border:thick solid black;
     color:white;
-    font-size:large;
-    padding:32px;
+    font-size:36px;
+    border-radius: 20px;
+    width:160px;
+    height:160px;
+    box-sizing:border-box;
+    box-shadow: 0px 0px 2px 2px black;
+}
+
+.btn:hover{
+    background-color: blue;
+    transition: .7s;
+}
+
+.btn:active{
+    background-color: red;
+    transition:0s
 }

@@ -3,42 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <h1>
-      Rock Paper Scissors Game
-    </h1>
+    <h1>Rock Paper Scissors Game</h1>
     <div class="flex-container-1">
-      <button class="btn flex-item">Rock</button>
+      <button class="btn flex-item rock">Rock</button>
     </div>
     <div class="flex-container-2">
-      <button class="btn flex-item">Paper</button>
-      <button class="btn flex-item">Scissors</button>
+      <button class="btn flex-item paper">Paper</button>
+      <button class="btn flex-item scissors">Scissors</button>
     </div>
     <div>
-      
+      <p></p>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <script>
       let cpuWins = 0;
       let playerWins = 0;
       let cpuChoice;
+
+      const score = document.querySelector("p")
+      let updateScore = function(){
+      score.textContent = cpuWins}
 
       function setCpuChoice() {
         let cpuChoiceNum = Math.floor(Math.random() * 3);
@@ -51,36 +39,59 @@
         }
       }
 
-      function computerPlay() {
-        setCpuChoice();
-        return cpuChoice;
-      }
-
-      function playGame(playerChoice, cpuChoice) {
+      let playerRock = function () {
         setCpuChoice();
 
-        if (cpuChoice == "rock" && playerChoice == "paper") {
-          playerWins = ++playerWins;
-          return "you win!";
-        } else if (cpuChoice == "rock" && playerChoice == "scissors") {
-          cpuWins = ++cpuWins;
-          return "you lose!";
-        } else if (cpuChoice == "paper" && playerChoice == "rock") {
-          cpuWins = ++cpuWins;
-          return "you lose!";
-        } else if (cpuChoice == "paper" && playerChoice == "scissors") {
-          playerWins = ++playerWins;
-          return "you win!";
-        } else if (cpuChoice == "scissors" && playerChoice == "rock") {
-          playerWins = ++playerWins;
-          return "you win!";
-        } else if (cpuChoice == "scissors" && playerChoice == "paper") {
-          cpuWins = ++cpuWins;
-          return "you lose!";
+        if (cpuChoice == "scissors") {
+          playerWins += 1;
+          return "you win";
+        } else if (cpuChoice == "paper") {
+          cpuWins += 1;
+          updateScore();
+          return "you lose";
         } else {
           return "tie";
         }
-      }
+      };
+
+      let playerPaper = function () {
+        setCpuChoice();
+
+        if (cpuChoice == "scissors") {
+          cpuWins += 1;
+          updateScore();
+          return "you lose";
+        } else if (cpuChoice == "paper") {
+          return "tie";
+        } else {
+          playerWins += 1;
+          return "you win";
+        }
+      };
+
+      let playerScissors = function () {
+        setCpuChoice();
+
+        if (cpuChoice == "scissors") {
+          return "tie";
+        } else if (cpuChoice == "paper") {
+          playerWins += 1;
+          return "you win";
+        } else {
+          cpuWins += 1;
+          updateScore();
+          return "you lose";
+        }
+      };
+
+      const rock = document.querySelector(".rock");
+      rock.addEventListener("click", playerRock);
+
+      const paper = document.querySelector(".paper");
+      paper.addEventListener("click", playerPaper);
+
+      const scissors = document.querySelector(".scissors");
+      scissors.addEventListener("click", playerScissors);
     </script>
   </body>
 </html>
