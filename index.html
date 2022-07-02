@@ -18,9 +18,11 @@
     <div>
       <div class="cpuScore">
         <h2>Cpu Score</h2>
+        <p></p>
       </div>
       <div class="playerScore">
         <h2>Player Score</h2>
+        <p></p>
       </div>
     </div>
 
@@ -29,14 +31,14 @@
       let playerWins = 0;
       let cpuChoice;
 
-      const cpuScore = document.querySelectorAll[0]("h2");
+      const cpuScore = document.querySelectorAll("p");
       let updateCpuScore = function () {
-        score.textContent = cpuWins;
+        cpuScore[0].textContent = cpuWins;
       };
 
-      const playerScore = document.querySelectorAll[1]("h2");
+      const playerScore = document.querySelectorAll("p");
       let updatePlayerScore = function () {
-        score.textContent = playerWins;
+        playerScore[1].textContent = playerWins;
       };
 
       function setCpuChoice() {
@@ -55,10 +57,11 @@
 
         if (cpuChoice == "scissors") {
           playerWins += 1;
+          updatePlayerScore();
           return "you win";
         } else if (cpuChoice == "paper") {
           cpuWins += 1;
-          updateScore();
+          updateCpuScore();
           return "you lose";
         } else {
           return "tie";
@@ -70,12 +73,13 @@
 
         if (cpuChoice == "scissors") {
           cpuWins += 1;
-          updateScore();
+          updateCpuScore();
           return "you lose";
         } else if (cpuChoice == "paper") {
           return "tie";
         } else {
           playerWins += 1;
+          updatePlayerScore();
           return "you win";
         }
       };
@@ -87,10 +91,11 @@
           return "tie";
         } else if (cpuChoice == "paper") {
           playerWins += 1;
+          updatePlayerScore();
           return "you win";
         } else {
           cpuWins += 1;
-          updateScore();
+          updateCpuScore();
           return "you lose";
         }
       };
