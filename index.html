@@ -18,11 +18,11 @@
     <div id="scoreboards">
       <div class="Score">
         <h2>Cpu Score</h2>
-        <p></p>
+        <p id="cpuScoreboard"></p>
       </div>
       <div class="Score">
         <h2>Player Score</h2>
-        <p></p>
+        <p id="playerScoreboard"></p>
       </div>
     </div>
 
@@ -31,14 +31,14 @@
       let playerWins = 0;
       let cpuChoice;
 
-      const cpuScore = document.querySelectorAll("p");
+      const cpuScore = document.getElementById("cpuScoreboard");
       let updateCpuScore = function () {
-        cpuScore[0].textContent = cpuWins;
+        cpuScore.textContent = cpuWins;
       };
 
-      const playerScore = document.querySelectorAll("p");
+      const playerScore = document.getElementById("playerScoreboard");
       let updatePlayerScore = function () {
-        playerScore[1].textContent = playerWins;
+        playerScore.textContent = playerWins;
       };
 
       function setCpuChoice() {
@@ -80,15 +80,19 @@
         if (cpuChoice == "scissors") {
           cpuWins += 1;
           updateCpuScore();
-          alert("You Lose!");
-          location.reload();
+          if (cpuWins == 5) {
+            alert("You Lose!");
+            location.reload();
+          }
         } else if (cpuChoice == "paper") {
           alert("tie, choose again");
         } else {
           playerWins += 1;
           updatePlayerScore();
-          alert("You Win!");
-          location.reload();
+          if (playerWins == 5) {
+            alert("You Win!");
+            location.reload();
+          }
         }
       };
 
@@ -100,13 +104,17 @@
         } else if (cpuChoice == "paper") {
           playerWins += 1;
           updatePlayerScore();
-          alert("You Win!");
-          location.reload();
+          if (playerWins == 5) {
+            alert("You Win!");
+            location.reload();
+          }
         } else {
           cpuWins += 1;
           updateCpuScore();
-          alert("You Lose!");
-          location.reload();
+          if (cpuWins == 5) {
+            alert("You Lose!");
+            location.reload();
+          }
         }
       };
 
