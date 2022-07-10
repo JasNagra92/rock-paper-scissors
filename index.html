@@ -3,23 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
+    <h1>Rock Paper Scissors Game</h1>
+    <div class="flex-container-1">
+      <button class="btn flex-item rock">Rock</button>
+    </div>
+    <div class="flex-container-2">
+      <button class="btn flex-item paper">Paper</button>
+      <button class="btn flex-item scissors">Scissors</button>
+    </div>
+    <div id="scoreboards">
+      <div class="Score">
+        <h2>Cpu Score</h2>
+        <p id="cpuScoreboard"></p>
+      </div>
+      <div class="Score">
+        <h2>Player Score</h2>
+        <p id="playerScoreboard"></p>
+      </div>
+    </div>
+
     <script>
-      /* create variables to store cpu and player wins */
       let cpuWins = 0;
       let playerWins = 0;
-
-      /*create variable to store cpu choice as rock, paper or scissors */
       let cpuChoice;
 
-      /*create variable to choose a random number then store it in a variable */
-      /*change value of cpu choice variable depending on value of random number variable */
-      /*create function to run this code and make a different cpu choice each time function is run */
+      const cpuScore = document.getElementById("cpuScoreboard");
+      let updateCpuScore = function () {
+        cpuScore.textContent = cpuWins;
+      };
+
+      const playerScore = document.getElementById("playerScoreboard");
+      let updatePlayerScore = function () {
+        playerScore.textContent = playerWins;
+      };
+
       function setCpuChoice() {
         let cpuChoiceNum = Math.floor(Math.random() * 3);
-
         if (cpuChoiceNum == 0) {
           cpuChoice = "rock";
         } else if (cpuChoiceNum == 1) {
@@ -29,60 +52,80 @@
         }
       }
 
-        /*create function that assigns random string as cpuChoice and returns it */
-        function computerPlay() {
-            setCpuChoice();
-            return cpuChoice
-        }
-      /*create function that returns previous cpu choice variable */
-      function computerPlay() {
+      let playerRock = function () {
         setCpuChoice();
-        return cpuChoice;
-      }
 
-      /*create variable to store user choice of rock, paper, or scissors after a prompt */
-      let playerChoice = prompt("rock, paper, or scissors?");
-
-      /*create function that compares the 2 variables and returns a win or loss, but uses the previous cpuChoice function
-        so cpu choice is random each time */
-      function playGame(playerChoice, cpuChoice) {
-            setCpuChoice();
-
-                if (cpuChoice == 'rock' && playerChoice == 'paper') {
-                    playerWins = ++playerWins;
-                    return "you win!"
-                } else if (cpuChoice == 'rock' && playerChoice == 'scissors') {
-                    cpuWins = ++cpuWins;
-                    return "you lose!";
-                } else if (cpuChoice == 'paper' && playerChoice == 'rock') {
-                    cpuWins = ++cpuWins;
-                    return "you lose!";
-                } else if (cpuChoice == 'paper' && playerChoice == 'scissors') {
-                    playerWins = ++playerWins;
-                    return "you win!";
-                } else if (cpuChoice == 'scissors' && playerChoice == 'rock') {
-                    playerWins = ++playerWins
-                    return "you win!";
-                } else if (cpuChoice == 'scissors' && playerChoice == 'paper') {
-                    cpuWins = ++cpuWins;
-                    return "you lose!";
-                } else { return 'tie'}
-            }
-
-            /*create function to play the game 5 times and return winner or loser at the end */
-
-      function game() {
-        for (let i = 0; i < 5; i++) {
-          playerChoice = prompt("paper scissors rock?");
-
-          console.log(playGame(playerChoice, computerPlay()));
-        }
-        if (playerWins > cpuWins) {
-          return "you win!";
+        if (cpuChoice == "scissors") {
+          playerWins += 1;
+          updatePlayerScore();
+          if (playerWins == 5) {
+            alert("You Win!");
+            location.reload();
+          }
+        } else if (cpuChoice == "paper") {
+          cpuWins += 1;
+          updateCpuScore();
+          if (cpuWins == 5) {
+            alert("You Lose!");
+            location.reload();
+          }
         } else {
-          return "you lose!";
+          alert("tie, choose again");
         }
-      }
+      };
+
+      let playerPaper = function () {
+        setCpuChoice();
+
+        if (cpuChoice == "scissors") {
+          cpuWins += 1;
+          updateCpuScore();
+          if (cpuWins == 5) {
+            alert("You Lose!");
+            location.reload();
+          }
+        } else if (cpuChoice == "paper") {
+          alert("tie, choose again");
+        } else {
+          playerWins += 1;
+          updatePlayerScore();
+          if (playerWins == 5) {
+            alert("You Win!");
+            location.reload();
+          }
+        }
+      };
+
+      let playerScissors = function () {
+        setCpuChoice();
+
+        if (cpuChoice == "scissors") {
+          alert("tie, choose again");
+        } else if (cpuChoice == "paper") {
+          playerWins += 1;
+          updatePlayerScore();
+          if (playerWins == 5) {
+            alert("You Win!");
+            location.reload();
+          }
+        } else {
+          cpuWins += 1;
+          updateCpuScore();
+          if (cpuWins == 5) {
+            alert("You Lose!");
+            location.reload();
+          }
+        }
+      };
+
+      const rock = document.querySelector(".rock");
+      rock.addEventListener("click", playerRock);
+
+      const paper = document.querySelector(".paper");
+      paper.addEventListener("click", playerPaper);
+
+      const scissors = document.querySelector(".scissors");
+      scissors.addEventListener("click", playerScissors);
     </script>
   </body>
 </html>
